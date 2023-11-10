@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPA Calculator - حاسبة المعدل التراكمي</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/index.css">
+
+    <style>
+        h1 {
+            color: #0418f2;
+            margin-top: 50px;
+        }
+        
+        th {
+            background-color: #d9eced;
+            color: #0f0e0e;
+        }
+        
+        a {
+            color: rgb(9, 9, 9);
+        }
+        
+        a:link {
+            color: white;
+        }
+        
+        a:visited {
+            color: white;
+        }
+        
+        a:hover {
+            color: red;
+        }
+        
+        a:active {
+            color: white;
+        }
+        
+        a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+ <nav class="navbar navbar-expand-lg navbar-light py-0 bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand border-0 " href="#"><img src="imgs/logo.jpeg" class="img-fluid" width="75px" alt="Logo Page"></a>
+            <button class="navbar-toggler outline-0 border-0 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+         
+        </div>
+    </nav>
+  <div class="container">
+   <h1 class="text-dark" style="color:#0909b0; background-color:rgb(20, 150, 133);   border: 1px solid #3d0fe4;
+                padding: 10px; text-align: center" ;>عابر الكلية التقنية</h1>
+    <h1>حاسبة المعدل التراكمي للكلية التقنية</h1>
+    <table>
+      <tr>
+        <th>اسم المقرر</th>
+        <th>الدرجة</th>
+        <th>عدد الساعات (الوحدات)</th>
+        <th>التقدير</th>
+        <th>عدد النقاط</th>
+      </tr>
+      <tr>
+        <td><input type="text" class="course-name" /></td>
+        <td><input type="number" class="course-grade" min="0" max="100" oninput="calculateGrade(this)" /></td>
+        <td><input type="number" class="course-hours" oninput="calculatePoints(this)" /></td>
+        <td>
+          <select class="course-grade-select" oninput="setGradeValue(this)">
+            <option value=""></option>
+            <option value="5">A+</option>
+            <option value="4.75">A</option>
+            <option value="4.5">B+</option>
+            <option value="4">B</option>
+            <option value="3.5">C+</option>
+            <option value="3">C</option>
+            <option value="2.5">D+</option>
+            <option value="2">D</option>
+            <option value="1">F</option>
+          </select>
+        </td>
+        <td><span class="course-points">0</span></td>
+      </tr>
+    </table>
+    <button onclick="addNewCourse()">أضف مقرر جديد</button>
+<div class="flex-container">
+  <div class="previous-semester">
+    <h2>المعدل الدراسي الإجمالي</h2>
+    <p>المعدل التراكمي السابق:<input type="number" id="previous-gpa" min="0" max="5" oninput="calculateCGPA()"/></p>
+    <p>مجموع الساعات الكلي:<input type="number" id="previous-hours" min="0" oninput="calculateCGPA()"/></p>
+  </div>
+  <div class="gpa-summary">
+    <h2>ملخص</h2>
+    <p>مجموع النقاط: <span id="total-points">0</span></p>
+    <p>مجموع الساعات: <span id="total-hours">0</span></p>
+    <p>المعدل الفصلي: <span id="gpa">0</span></p>
+    <p> التقدير: <span id="gpa-letter">N/A</span></p>
+  </div>
+</div><p>مجموع النقاط الكلي: <span id="total-points-all">0</span></p>
+<p>مجموع الساعات الكلي: <span id="total-hours-all">0</span></p>
+<p>المعدل التراكمي: <span id="cgpa">0</span></p>
+
+ <div class="following mt-0 pb-5">
+        <div class="container">
+            <h4  style="color:white; background-color:rgb(44, 132, 138);">لمتابعة الأخبار الحصرية وموعد التقديم تابعني عبر حساباتي 
+            </h4>
+
+            <div class="row justify-content-center gap-2 pb-5">
+
+
+                <div class="col-2 col-lg-1">
+                    <a href="https://youtube.com/@tvtc_abr20k?si=yketnNSja8loYakZ"
+                        class="text-black text-decoration-none d-flex flex-column align-items-center my-3"
+                        target="_blank">
+                        <img src="imgs/Yo.webp" class="img-fluid" alt="fb-logo">
+                    youtube
+                    </a>
+        </div>
+        <div class="col-2 col-lg-1">
+            <a href="https://t.me/abr20kk" class="text-black text-decoration-none d-flex flex-column align-items-center  my-3" target="_blank">
+                <img src="imgs/Telegram_logo.svg.webp" class="img-fluid" alt="Telegramlogo"> Telegram
+            </a>
+        </div>
+
+        <div class="col-2 col-lg-1">
+            <a href="https://www.snapchat.com/add/abr20k" class="text-black text-decoration-none d-flex flex-column align-items-center my-3" target="_blank">
+                <img src="imgs/snaplogo.jpg" class="img-fluid" alt="snapchatlogo"> snapchat <br>
+            </a>
+        </div>
+        <div class="col-2 col-lg-1">
+            <a href="https://www.tiktok.com/@tvtc_abr20k?_t=8h69JRIEmmI&_r=1" class="text-black text-decoration-none d-flex flex-column align-items-center my-3" target="_blank">
+                <img src="imgs/tik.png" class="img-fluid" alt="tiktoklogo"> tiktok <br>
+            </a>
+        </div>
+  <div class="col-2 col-lg-1">
+            <a href="https://x.com/tvtc_abr20k?s=21" class="text-black text-decoration-none d-flex flex-column align-items-center  my-3" target="_blank">
+                <img src="imgs/Twitter-logo.svg.webp" class="img-fluid" alt="Twitterlogo"> twitter
+            </a>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <footer class="text-center text-dark py-3 mt-5 w-100" style="position:center;">
+       جميع الحقوق محفوظة ل عابر الكلية التقنية&copy;
+    </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

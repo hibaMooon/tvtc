@@ -1,0 +1,61 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #dcf3f4;
+    position: relative;
+    min-height: 100vh;
+}
+
+a.navbar-brand {
+    width: 100px;
+}
+
+.uni {
+    color: rgb(8, 8, 235);
+}
+
+.navbar-nav {
+    width: fit-content;
+}
+
+.nav-item {
+    font-size: 14px;
+}
+
+.navbar-toggler:active {
+    box-shadow: 0;
+}
+
+.nav-item .nav-link.active {
+    background-color: green;
+}
+
+form input {
+    width: 100px;
+}
+
+.btn-calc {
+    background-color: rgb(39, 63, 80);
+}
+
+.following a {
+    font-size: 12px;
+}
+
+.following a img {
+    width: 80px;
+}
+
+.btn-date {
+    display: none;
+}
+
+th {
+    background-color: rgb(20, 77, 90);
+    color: rgb(20, 77, 90);
+}
+
+footer {
+    background-color: #376b5c;
+    position: absolute;
+    bottom: 0;
+}
